@@ -8,6 +8,10 @@ function ToDoInput(props) {
     const createTodoItem = (e) => {
         e.preventDefault();
 
+        if (input == null || input == "") {
+            return
+        }
+
         const appended = items.concat([{
             id: Math.floor(Math.random() * 100000),
             name: input,

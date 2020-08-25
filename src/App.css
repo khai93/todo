@@ -44,8 +44,7 @@ li {
   font-size: 20px;
 }
 
-li:hover {
-  text-decoration: underline;
+li:not(.done):hover {
   cursor: pointer;
 }
 
