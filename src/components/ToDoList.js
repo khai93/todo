@@ -8,7 +8,7 @@ function ToDoList(props) {
         return <div>No Items</div>
     }
 
-    const handleClick = (id) => {
+    const toggleItem = (id) => {
         const editedItems = items.map(item => {
             if (item.id === id) {
                 item.done = !item.done;
@@ -20,12 +20,18 @@ function ToDoList(props) {
         setItems(editedItems)
     }
 
+    const deleteItem = (id) => {
+        const editedItems = items.filter(item => item.id !== id);
+
+        setItems(editedItems)
+    }
+
     return (
         <ul>
             {
                 props.items.map((item) => {
                     return (
-                        <ToDoItem data-testid="item-name" handleClick={handleClick} id={item.id} key={item.id} name={item.name} done={item.done}/>
+                        <ToDoItem data-testid="item-name" handleClick={toggleItem} handleDoubleClick={deleteItem} id={item.id} key={item.id} name={item.name} done={item.done}/>
                     )
                 })
             }    
